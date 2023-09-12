@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
@@ -18,7 +17,8 @@ function UpdateSettingsForm() {
   } = useSettings();
   const { isUpdating, updateSetting } = useUpdateSetting();
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return;
+  // if (isLoading) return <Spinner />;
 
   function handleUpdate(e, field) {
     const { value } = e.target;

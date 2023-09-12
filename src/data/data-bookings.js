@@ -43,8 +43,8 @@ export const fakeBookings = [
     numGuests: 1,
     numNights: 7,
     cabinName: "VVIP",
-    extraPrice: 2500,
-    cabinPrice: 12000,
+    extraPrice: 22800,
+    cabinPrice: 62000,
 
     hasBreakfast: true,
     isPaid: false,
