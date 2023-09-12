@@ -23,7 +23,8 @@ const StyledDevToolsContainer = styled.div`
 `;
 
 const StyledDevTools = styled.div`
-  display: inline-flex;
+  display: flex;
+  gap: 1rem;
 `;
 
 function Sidebar() {
