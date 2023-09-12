@@ -68,11 +68,13 @@ function SalesChart({ bookings, numDays }) {
         <AreaChart data={data}>
           <XAxis
             dataKey="label"
+            fontSize={14}
             tick={{ fill: colors.text }}
             tickLine={{ stroke: colors.text }}
           />
           <YAxis
             unit="₹"
+            fontSize={14}
             tick={{ fill: colors.text }}
             tickLine={{ stroke: colors.text }}
           />

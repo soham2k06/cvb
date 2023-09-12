@@ -4,8 +4,8 @@ import Heading from "../../ui/Heading";
 import Row from "../../ui/Row";
 
 import { useTodayActivity } from "./useTodayActivity";
-import Spinner from "../../ui/Spinner";
-import TodayItem from "./TodayItem";
+
+import TodayItem, { StyledTodayItem } from "./TodayItem";
 
 const StyledToday = styled.div`
   /* Box */
@@ -40,7 +40,18 @@ const NoActivity = styled.p`
   margin-top: 0.8rem;
 `;
 
+const StyledSkeletonItems = styled.span`
+  background-color: var(--color-grey-200);
+  color: var(--color-grey-200);
+  border-radius: 5px;
+`;
+
 function TodayActivity() {
+  const skeletonItems = [];
+  for (let i = 1; i <= 5; i++) {
+    skeletonItems.push(i);
+  }
+
   const { activities, isLoading } = useTodayActivity();
 
   return (
@@ -60,7 +71,15 @@ function TodayActivity() {
           <NoActivity>No activity today...</NoActivity>
         )
       ) : (
-        <Spinner />
+        <>
+          <TodayList>
+            <StyledTodayItem isLoading>
+              {skeletonItems.map((i) => (
+                <StyledSkeletonItems key={i}>-</StyledSkeletonItems>
+              ))}
+            </StyledTodayItem>
+          </TodayList>
+        </>
       )}
     </StyledToday>
   );

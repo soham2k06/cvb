@@ -21,29 +21,46 @@ import Modal from "../../ui/Modal";
 import Menus from "../../ui/Menus";
 import ConfirmModal from "../../ui/ConfirmModal";
 
-const Cabin = styled.div`
+export const Cabin = styled.div`
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--color-grey-600);
   font-family: "Sono";
+
+  color: var(--color-grey-${({ isLoading }) => (isLoading ? 200 : 600)});
+  background-color: ${({ isLoading }) =>
+    isLoading ? "var(--color-grey-200)" : "transparent"};
+  border-radius: 5px;
 `;
 
-const Stacked = styled.div`
+export const Stacked = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  font-weight: 500;
+
+  color: ${({ isLoading }) => (isLoading ? "var(--color-grey-200)" : "unset")};
 
   & span:first-child {
-    font-weight: 500;
+    background-color: ${({ isLoading }) =>
+      isLoading ? "var(--color-grey-200)" : "transparent"};
+    border-radius: 5px;
   }
 
   & span:last-child {
-    color: var(--color-grey-500);
+    color: var(--color-grey-${({ isLoading }) => (isLoading ? 200 : 500)});
+    width: fit-content;
+    background-color: ${({ isLoading }) =>
+      isLoading ? "var(--color-grey-200)" : "transparent"};
+    border-radius: 5px;
     font-size: 1.2rem;
   }
 `;
 
-const Amount = styled.div`
+export const Amount = styled.div`
+  background-color: ${({ isLoading }) =>
+    isLoading ? "var(--color-grey-200)" : "transparent"};
+  color: ${({ isLoading }) => (isLoading ? "var(--color-grey-200)" : "unset")};
+  border-radius: 5px;
   font-family: "Sono";
   font-weight: 500;
 `;

@@ -3,18 +3,19 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import Tag from "../../ui/Tag";
-import { Flag } from "../../ui/Flag";
+
 import Button from "../../ui/Button";
 import CheckoutButton from "./CheckoutButton";
 
-const StyledTodayItem = styled.li`
+export const StyledTodayItem = styled.li`
   display: grid;
   grid-template-columns: 9rem 2rem 1fr 7rem 9rem;
   gap: 1.2rem;
   align-items: center;
-
+  background-color: var(--color-grey-${(props) => (props.isLoading ? 100 : 0)});
+  border-radius: 8px;
   font-size: 1.4rem;
-  padding: 0.8rem 0;
+  padding: ${(props) => (props.isLoading ? "0.8rem 8px" : "0.8rem 0")};
   border-bottom: 1px solid var(--color-grey-100);
 
   &:first-child {
