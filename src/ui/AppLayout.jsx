@@ -28,7 +28,7 @@ const Container = styled.div`
 
 function AppLayout() {
   const { isDarkMode } = useDarkMode();
-  console.log(isDarkMode);
+
   return (
     <StyledAppLayout>
       <Header />
