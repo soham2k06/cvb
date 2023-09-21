@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { ToastContainer } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
 
 import GlobalStyles from "./styles/GlobalStyles";
@@ -18,17 +18,20 @@ import Booking from "./pages/Booking";
 import Checkin from "./pages/Checkin";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import { DarkModeProvider } from "./context/DarkModeContext";
+import { useUser } from "./features/authentication/useUser";
+import React from "react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      // staleTime: 60 * 1000,
       staleTime: 0,
     },
   },
 });
 
 function App() {
+  // const { isLoading, isAuthenticated } = useUser();
+  // console.log(isLoading, isAuthenticated);
   return (
     <DarkModeProvider>
       <QueryClientProvider client={queryClient}>
@@ -59,19 +62,6 @@ function App() {
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
-
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme={localStorage.getItem("isDarkMode") ? "dark" : "light"}
-        />
       </QueryClientProvider>
     </DarkModeProvider>
   );

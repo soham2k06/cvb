@@ -1,4 +1,4 @@
-import CabinRow, { Cabin, Img } from "./CabinRow";
+import CabinRow, { Cabin } from "./CabinRow";
 import { useCabins } from "./useCabins";
 import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";

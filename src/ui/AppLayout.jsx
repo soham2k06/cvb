@@ -2,6 +2,8 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import styled from "styled-components";
+import { ToastContainer } from "react-toastify";
+import { useDarkMode } from "../context/DarkModeContext";
 
 const StyledAppLayout = styled.div`
   display: grid;
@@ -25,6 +27,8 @@ const Container = styled.div`
 `;
 
 function AppLayout() {
+  const { isDarkMode } = useDarkMode();
+  console.log(isDarkMode);
   return (
     <StyledAppLayout>
       <Header />
@@ -34,6 +38,18 @@ function AppLayout() {
           <Outlet />
         </Container>
       </Main>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme={isDarkMode ? "dark" : "light"}
+      />
     </StyledAppLayout>
   );
 }
